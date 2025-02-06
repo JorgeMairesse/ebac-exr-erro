@@ -13,6 +13,7 @@ body {
     color: #333;
     align-items: center;
     justify-content: center;
+    position: relative; /* Adicionado para o controle do z-index */
 }
 
 header {
@@ -24,13 +25,29 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 2; /* Colocado à frente */
 }
 
 h2 {
     text-align: center;
     margin-bottom: 16px;
     color: #332f2f;
+}
+
+#carousel-imagens {
+    position: absolute; /* Torna o carrossel "fundo" */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Colocado atrás */
+}
+
+#carousel-imagens img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-height: 400px;
 }
 
 .container {
@@ -42,6 +59,8 @@ h2 {
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     border: 1px solid #aaa;
+    position: relative; /* Garante que o container esteja acima */
+    z-index: 3; /* Colocado à frente do carrossel */
 }
 
 .container button {
@@ -92,38 +111,10 @@ h2 {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.container button {
-    background: linear-gradient(90deg, #007bff, #0056b3);
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background 0.3s ease-in-out;
-    width: 100%;
-}
-
-.container button:hover {
-    background: linear-gradient(90deg, #0056b3, #004080);
-}
-
-.container button:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-}
-
-.error {
+#error {
     color: red;
     outline: 2px solid #995a5288;
     outline-offset: 2px;
-}
-
-#carousel-imagens img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
